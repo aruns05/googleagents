@@ -32,6 +32,7 @@ question_answering_agent = Agent(
     Preferences: 
     {user_preferences}
     """,
+    output_key="myanswer",
 )
 
 root_agent = question_answering_agent

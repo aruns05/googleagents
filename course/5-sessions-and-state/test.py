@@ -17,18 +17,18 @@ engine = sqlalchemy.create_engine(
         "energymgmt-461218:us-central1:pdlcsandbox", # Cloud SQL Instance Connection Name
         "pg8000",
         user="arun",
-        password="Mayurvihar@011",
-        db="pdlc",
+        password="pdlc246",
+        db="pdlcnew",
         ip_type="public"  # "private" for private IP
     ),
 )
 
 # Assuming 'engine' is already created as in the script above
 with engine.connect() as connection:
-    result = connection.execute(text("SELECT * FROM pdlcmemory"))
+    result = connection.execute(text("SELECT * FROM sessions"))
     print("Found sessions via raw SQL:")
     for row in result:
-        print(f"  - Session ID: {row.session_id}, User ID: {row.user_id}")
+        print(f"  - Session ID: {row.id}, User ID: {row.user_id}, App Name: {row.app_name}")
         
 
 
