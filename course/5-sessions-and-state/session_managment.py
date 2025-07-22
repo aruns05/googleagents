@@ -14,12 +14,6 @@ from utils import get_session_details, get_connection_string
 load_dotenv()
 
 async def main():
-        
-    # DB_HOST=os.getenv("DB_HOST")
-    # DB_USER = os.getenv("DB_USER")
-    # DB_PASSWORD  = os.getenv("DB_PASSWORD")
-    # DB_NAME = os.getenv("DB_NAME")
-    # DB_PORT = os.getenv("DB_PORT") 
 
     # Create a NEW session
     APP_NAME = "arunsridhar"
@@ -28,16 +22,15 @@ async def main():
     
     # --- Create the Connection String ---
     connection_string = get_connection_string() 
-    #connection_string=f"postgresql+pg8000://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 
     # Create a new session service to store state in internal memory
-    #session_service_stateful = InMemorySessionService()
+    session_service_stateful = InMemorySessionService()
     
     # Create a new session service to store state in external DB
-    session_service_stateful = DatabaseSessionService(
-            #db_url="sqlite:///sample.db"
-            db_url = connection_string
-        )
+    # session_service_stateful = DatabaseSessionService(
+    #         #db_url="sqlite:///sample.db"
+    #         db_url = connection_string
+    #     )
         
     initial_state = {
         "user_name": "Arun Sridhar",
