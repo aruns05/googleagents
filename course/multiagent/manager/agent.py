@@ -9,6 +9,7 @@ async def print_before_agent_callback_message(callback_context: CallbackContext)
     print("manager_before_callback_context",callback_context.state.get('final_text'))
     
 async def print_after_agent_callback_message(callback_context: CallbackContext):
+    
     print("invocation_id",callback_context.invocation_id)
     print("manager_after_callback_context",callback_context.state.get('final_text'))
 
@@ -37,8 +38,8 @@ manager_root_agent = Agent(
     #     get_current_time,
     # ],
     output_key="final_text",
-    before_agent_callback=print_before_agent_callback_message,
-    after_agent_callback=print_after_agent_callback_message,
+    #before_agent_callback=print_before_agent_callback_message,
+    #after_agent_callback=print_after_agent_callback_message,
 
 )
 
