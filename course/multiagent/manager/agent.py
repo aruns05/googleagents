@@ -1,8 +1,10 @@
 from google.adk.agents import Agent
 from google.adk.tools.agent_tool import AgentTool
 
-from .sub_agents.qna_creator.agent import qna_creator
+
+from .sub_agents.qna_creator_master_agent.agent import qna_creator_master_agent
 from .sub_agents.epic_user_story_creator.agent import epic_user_story_creator
+
 from google.adk.agents.callback_context import CallbackContext
 
 async def print_before_agent_callback_message(callback_context: CallbackContext):
@@ -32,7 +34,7 @@ manager_root_agent = Agent(
     - query_rag_corpus_tool
     - search_all_corpora_tool
     """,
-    sub_agents=[epic_user_story_creator, qna_creator],
+    sub_agents=[epic_user_story_creator, qna_creator_master_agent],
     # tools=[
     #     AgentTool(news_analyst),
     #     get_current_time,
