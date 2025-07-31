@@ -9,3 +9,9 @@ psycopg2
 google-api-core
 google-cloud-documentai==3.0.0
 pandas
+
+functions-framework
+cloudevents
+google-cloud-aiplatform
+vertexai
+google-cloud-storage
