@@ -47,7 +47,7 @@ def simple_before_model_modifier(
     print("Before Modification: " + str(llm_request.contents[-1].parts[0].text))
     
     if isinstance(llm_request.contents[-1], types.Content):
-        llm_request.contents[-1].parts[0].text = llm_request.contents[-1].parts[0].text + "Modified by Arun Sridhar"
+        llm_request.contents[-1].parts[0].text = llm_request.contents[-1].parts[0].text + "\t Modified by Arun Sridhar"
     
     print("After Modification: " )
     # for c in llm_request.contents:
@@ -55,15 +55,7 @@ def simple_before_model_modifier(
     #         print(f"[Callback] Content Part: {p.text}")
     
     print("llm_request.contents", llm_request.contents)
-    
-    # return LlmResponse(
-    #         content=types.Content(
-    #             role="model",
-    #             parts=[types.Part(text="LLM call was blocked by before_model_callback.")],
-    #         )
-    #     )
-
-    
+        
     # --- Skip Example ---
     # Check if the last user message contains "BLOCK"
     if "BLOCK" in last_user_message.upper():
@@ -120,4 +112,4 @@ async def call_agent_async(query):
 
 # If you want to run this in a script, you can use:
 import asyncio
-asyncio.run(call_agent_async("write 3 lines about Sachin Tendulkar"))  # Example query
+asyncio.run(call_agent_async("This contains BLOCK"))  # Example query
